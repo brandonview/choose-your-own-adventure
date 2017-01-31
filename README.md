@@ -48,6 +48,22 @@ A class representing a point in the story of the game.
 * `private Integer promptForActionOptionSelection()` Prompts the user to select an option and reads from stdin. Returns the storyPointId associated with the selected ActionOption
 * `private void setNextStoryPoint(Integer storyPointId)` Sets the currentStoryPoint to the StoryPoint corresponding to the storyPointId argument passed in. If the StoryPoint with corresponding ID is found in the cache, use that and don't create a new one. If not, call the finalructor passing storyPointId and cache the newly created StoryPoint.
 
+####**StoryPointBuilder**
+
+If we don't mind making our codebase a little bigger in the interest of making the code a little more flexible, 
+the correct thing to do would be to have a helper class called something like `StoryPointBuilder` full of static methods
+including one that returns a StoryPoint given a storyPointId. 
+
+With this implementation, an all args constructor would replace the current StoryPoint constructor that takes a StoryPointID.
+
+This allows the StoryPoint class to be decoupled from the way we choose to store data for the StoryPoints in the game. 
+If we decide to use a database or another storage method than json files, then this would be the only class that needs to change.
+The GameRunner class would call StoryPointBuilder.buildFromStoryPointId(storyPointId) which could be modified to implement
+different lookup systems without affecting clients of the class.
+
+The StoryPointBuilder would manage constant configuration values like filetype extension for StoryPoint data files 
+and the directory path to these files as well as a system level file reader.
+
 ##Pseudocode
 I've included some pseudocode for methods that may be nontrivial.
 
@@ -109,3 +125,4 @@ public class StoryPoint {
   }
 }
 ```
+
