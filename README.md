@@ -1,7 +1,7 @@
 #Choose Your Own Adventure
 
 ##Overview
-A choose your own adventure game is an interactive story where the plot and ending are influenced by the readers choices throughout the game.
+A choose your own adventure game is an interactive story where the plot and ending are influenced by the reader's choices throughout the game.
 
 There is no code in this repository as it was created as an exercise in design while I was bored at work. Currently this repository is only host to this README.md file outlining a reasonably well thought out (well I thought so anyway) API for how this game might be designed in a Java-like object oriented language.
 
