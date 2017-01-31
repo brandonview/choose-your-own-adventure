@@ -60,7 +60,7 @@ public class GameRunner {
     setNextStoryPoint(startStoryPointId);
     
     // main game loop
-    while() {
+    while(true) {
       displayStoryText();
       
       if (currentActionOption.getIsFinal()) {
@@ -108,4 +108,5 @@ public class StoryPoint {
     this.actionOptionIds = new List<Integer>(rawStoryPointData["actionOptionIds"]);
     this.isFinal = rawStoryPointData["isFinal"];
   }
+}
 ```
